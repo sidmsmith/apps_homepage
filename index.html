@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SC Utilities</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0066cc;
+      --secondary: #6c757d;
+      --success: #28a745;
+      --light-bg: #f8f9fa;
+      --border: #dee2e6;
+      --shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    body {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      padding: 2rem 0;
+    }
+
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 50px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.95;
+      transition: opacity 0.2s;
+    }
+
+    .logo:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .logo {
+        height: 40px;
+        position: relative;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    .stats-bar {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .apps-container {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .apps-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .app-item {
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 0;
+      transition: background-color 0.2s;
+    }
+
+    .app-item:last-child {
+      border-bottom: none;
+    }
+
+    .app-item:hover {
+      background-color: var(--light-bg);
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      border-radius: 8px;
+    }
+
+    .app-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+
+    .app-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .app-name:hover {
+      text-decoration: underline;
+    }
+
+    .app-name i {
+      font-size: 1.2rem;
+    }
+
+    .app-meta {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: var(--secondary);
+    }
+
+    .app-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .app-description {
+      color: #495057;
+      margin-top: 0.5rem;
+      line-height: 1.6;
+    }
+
+    .version-badge {
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 3rem;
+      color: var(--secondary);
+    }
+
+    .error {
+      background: #f8d7da;
+      color: #721c24;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2rem;
+      }
+
+      .app-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .app-meta {
+        flex-wrap: wrap;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-container">
+    <div class="header">
+      <img src="/manhlogo.png" alt="Manhattan Associates" class="logo" onerror="this.style.display='none'">
+      <h1><i class="fas fa-th-large"></i> SC Utilities</h1>
+      <p>Your collection of Manhattan Associates tools and utilities</p>
+    </div>
+
+    <div class="stats-bar" id="statsBar">
+      <div class="stat-item">
+        <div class="stat-value" id="totalApps">-</div>
+        <div class="stat-label">Total Apps</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="totalVisits">-</div>
+        <div class="stat-label">Total Visits</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="lastVisit">-</div>
+        <div class="stat-label">Last Visit</div>
+      </div>
+    </div>
+
+    <div class="apps-container">
+      <div id="loading" class="loading">
+        <i class="fas fa-spinner fa-spin"></i> Loading applications...
+      </div>
+      <div id="error" class="error" style="display: none;"></div>
+      <ul class="apps-list" id="appsList" style="display: none;"></ul>
+    </div>
+  </div>
+
+  <script>
+    // Track visits
+    function updateStats() {
+      const visits = parseInt(localStorage.getItem('homepageVisits') || '0') + 1;
+      localStorage.setItem('homepageVisits', visits.toString());
+      localStorage.setItem('homepageLastVisit', new Date().toISOString());
+
+      document.getElementById('totalVisits').textContent = visits;
+      const lastVisit = localStorage.getItem('homepageLastVisit');
+      if (lastVisit) {
+        const date = new Date(lastVisit);
+        document.getElementById('lastVisit').textContent = date.toLocaleDateString();
+      }
+    }
+
+    // Load apps
+    async function loadApps() {
+      try {
+        const response = await fetch('/api/apps');
+        if (!response.ok) throw new Error('Failed to load apps');
+        
+        const apps = await response.json();
+        
+        // Update stats
+        document.getElementById('totalApps').textContent = apps.length;
+        updateStats();
+
+        // Hide loading, show list
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('appsList').style.display = 'block';
+
+        // Separate apps into production and under development
+        const productionApps = apps.filter(app => !app.under_development);
+        const devApps = apps.filter(app => app.under_development);
+
+        // Sort alphabetically
+        productionApps.sort((a, b) => a.name.localeCompare(b.name));
+        devApps.sort((a, b) => a.name.localeCompare(b.name));
+
+        // Render apps
+        const appsList = document.getElementById('appsList');
+        let html = '';
+
+        // Production apps
+        if (productionApps.length > 0) {
+          html += productionApps.map(app => `
+            <li class="app-item">
+              <div class="app-header">
+                <a href="${app.url}" target="_blank" class="app-name">
+                  <i class="fas fa-external-link-alt"></i>
+                  ${app.name}
+                </a>
+                <div class="app-meta">
+                  ${app.version ? `<span class="app-meta-item"><i class="fas fa-tag"></i> <span class="version-badge">${app.version}</span></span>` : ''}
+                  ${app.lastUpdated ? `<span class="app-meta-item"><i class="fas fa-clock"></i> ${app.lastUpdated}</span>` : ''}
+                </div>
+              </div>
+              ${app.description ? `<div class="app-description">${app.description}</div>` : ''}
+            </li>
+          `).join('');
+        }
+
+        // Under Development section
+        if (devApps.length > 0) {
+          html += `<li class="app-item" style="border-top: 2px solid var(--primary); margin-top: 1rem; padding-top: 2rem;">
+            <div style="font-size: 1.2rem; font-weight: 600; color: var(--primary); margin-bottom: 1rem;">
+              <i class="fas fa-tools"></i> Under Development
+            </div>
+          </li>`;
+          html += devApps.map(app => `
+            <li class="app-item">
+              <div class="app-header">
+                <a href="${app.url}" target="_blank" class="app-name">
+                  <i class="fas fa-external-link-alt"></i>
+                  ${app.name}
+                </a>
+                <div class="app-meta">
+                  ${app.version ? `<span class="app-meta-item"><i class="fas fa-tag"></i> <span class="version-badge">${app.version}</span></span>` : ''}
+                  ${app.lastUpdated ? `<span class="app-meta-item"><i class="fas fa-clock"></i> ${app.lastUpdated}</span>` : ''}
+                </div>
+              </div>
+              ${app.description ? `<div class="app-description">${app.description}</div>` : ''}
+            </li>
+          `).join('');
+        }
+
+        appsList.innerHTML = html;
+      } catch (error) {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('error').style.display = 'block';
+        document.getElementById('error').textContent = `Error loading apps: ${error.message}`;
+      }
+    }
+
+    // Load on page load
+    window.addEventListener('load', loadApps);
+  </script>
+</body>
+</html>
+
