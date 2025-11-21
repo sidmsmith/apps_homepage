@@ -71,10 +71,10 @@ APPS_CONFIG = [
         'lastUpdated': None
     },
     {
-        'id': 'item_generator',
+        'id': 'item_generator_gallery',
         'name': 'Item Generator',
-        'url': 'https://itemmastergenerator.vercel.app',
-        'vercel_project': 'item_generator',
+        'url': 'https://itemgenerator-gallery.vercel.app',
+        'vercel_project': 'item_generator_gallery',
         'description': 'Generate product items, download images, and bulk import to Manhattan WMS',
         'version': None,
         'lastUpdated': None,
