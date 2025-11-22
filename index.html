@@ -354,10 +354,6 @@
         
         const apps = await response.json();
         
-        // Update stats
-        document.getElementById('totalApps').textContent = apps.length;
-        updateStats();
-
         // Hide loading, show list
         document.getElementById('loading').style.display = 'none';
         document.getElementById('appsList').style.display = 'block';
@@ -366,9 +362,13 @@
         const productionApps = apps.filter(app => !app.under_development);
         const devApps = apps.filter(app => app.under_development);
 
-        // Sort alphabetically
+        // Sort alphabetically (only for production apps)
         productionApps.sort((a, b) => a.name.localeCompare(b.name));
-        devApps.sort((a, b) => a.name.localeCompare(b.name));
+        // Under Development apps maintain API order (no sorting)
+
+        // Update stats - only count production apps
+        document.getElementById('totalApps').textContent = productionApps.length;
+        updateStats();
 
         // Render apps
         const appsList = document.getElementById('appsList');
