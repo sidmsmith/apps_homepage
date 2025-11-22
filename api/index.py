@@ -83,7 +83,7 @@ APPS_CONFIG = [
     {
         'id': 'baseline',
         'name': 'Baseline',
-        'url': 'https://baseline.vercel.app',
+        'url': 'https://baseline-manh.vercel.app',
         'vercel_project': 'baseline',
         'description': 'Baseline used for creating new apps',
         'version': None,
