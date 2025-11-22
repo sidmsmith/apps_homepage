@@ -27,7 +27,7 @@ APPS_CONFIG = [
     },
     {
         'id': 'facility_addresses',
-        'name': 'Site Identification Developer',
+        'name': 'Update Facility Addresses',
         'url': 'https://facilityaddresses.vercel.app',
         'vercel_project': 'facility_addresses',
         'description': 'Tool for managing and identifying facility addresses',
@@ -76,6 +76,16 @@ APPS_CONFIG = [
         'url': 'https://itemgenerator-gallery.vercel.app',
         'vercel_project': 'item_generator_gallery',
         'description': 'Generate product items, download images, and bulk import to Manhattan WMS',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
+    },
+    {
+        'id': 'baseline',
+        'name': 'Baseline',
+        'url': 'https://baseline.vercel.app',
+        'vercel_project': 'baseline',
+        'description': 'Baseline used for creating new apps',
         'version': None,
         'lastUpdated': None,
         'under_development': True
