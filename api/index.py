@@ -99,6 +99,16 @@ APPS_CONFIG = [
         'version': None,
         'lastUpdated': None,
         'under_development': False
+    },
+    {
+        'id': 'driver_pickup',
+        'name': 'Driver Pickup',
+        'url': 'https://driver-pickup.vercel.app',
+        'vercel_project': 'driver_pickup',
+        'description': 'Signature capture for truck drivers during pickup',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
     }
 ]
 
