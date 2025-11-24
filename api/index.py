@@ -109,6 +109,16 @@ APPS_CONFIG = [
         'version': None,
         'lastUpdated': None,
         'under_development': False
+    },
+    {
+        'id': 'forecast_import',
+        'name': 'Import Forecast',
+        'url': 'https://forecast-import.vercel.app',
+        'vercel_project': 'forecast_import',
+        'description': 'Import forecast data from CSV or Excel files',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
     }
 ]
 
