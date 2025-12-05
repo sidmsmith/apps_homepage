@@ -425,6 +425,25 @@
         }
 
         appsList.innerHTML = html;
+        
+        // Track app clicks after apps are rendered
+        setTimeout(() => {
+          const appLinks = document.querySelectorAll('.app-name');
+          appLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+              const appName = this.textContent.trim().replace(/^\s*[^\s]+\s*/, ''); // Remove icon text
+              const appUrl = this.getAttribute('href');
+              
+              if (window.StatsigTracking && window.StatsigTracking.isInitialized()) {
+                window.StatsigTracking.logEvent('app_clicked', {
+                  app_name: appName,
+                  app_url: appUrl,
+                  timestamp: new Date().toISOString()
+                });
+              }
+            });
+          });
+        }, 100);
       } catch (error) {
         document.getElementById('loading').style.display = 'none';
         document.getElementById('error').style.display = 'block';
@@ -434,33 +453,6 @@
 
     // Load on page load
     window.addEventListener('load', loadApps);
-    
-    // Track app clicks after apps are loaded
-    function trackAppClicks() {
-      const appLinks = document.querySelectorAll('.app-name');
-      appLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          const appName = this.textContent.trim().replace(/^\s*[^\s]+\s*/, ''); // Remove icon text
-          const appUrl = this.getAttribute('href');
-          
-          if (window.StatsigTracking && window.StatsigTracking.isInitialized()) {
-            window.StatsigTracking.logEvent('app_clicked', {
-              app_name: appName,
-              app_url: appUrl,
-              timestamp: new Date().toISOString()
-            });
-          }
-        });
-      });
-    }
-    
-    // Track app clicks after apps are rendered
-    const originalLoadApps = loadApps;
-    loadApps = async function() {
-      await originalLoadApps();
-      // Wait a bit for DOM to update, then attach click handlers
-      setTimeout(trackAppClicks, 100);
-    };
   </script>
   <!-- Statsig Analytics -->
   <script src="statsig.js"></script>
