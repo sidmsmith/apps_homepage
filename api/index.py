@@ -160,7 +160,7 @@ APPS_CONFIG = [
     {
         'id': 'scp_store',
         'name': 'SCP Mobile',
-        'url': 'https://scp-store.vercel.app',
+        'url': 'https://manh-scp.vercel.app/',
         'vercel_project': 'scp_store',
         'description': 'Mobile-focused SCP utility application',
         'version': None,
