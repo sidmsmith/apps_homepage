@@ -172,7 +172,7 @@ APPS_CONFIG = [
         'name': 'Banding',
         'url': 'https://banding-wm.vercel.app/',
         'vercel_project': 'banding',
-        'description': 'Banding workflow utility',
+        'description': 'Banding app to combine and split bundles (Leviton)',
         'version': None,
         'lastUpdated': None,
         'under_development': True
