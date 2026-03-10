@@ -100,7 +100,7 @@ APPS_CONFIG = [
     {
         'id': 'cycle_count',
         'name': 'Cycle Count Import',
-        'url': 'https://cycle-count.vercel.app',
+        'url': 'https://cyclecount.vercel.app/',
         'vercel_project': 'cycle_count',
         'description': 'Import and manage cycle count data',
         'version': None,
@@ -170,7 +170,7 @@ APPS_CONFIG = [
     {
         'id': 'banding',
         'name': 'Banding',
-        'url': 'https://banding.vercel.app',
+        'url': 'https://banding-wm.vercel.app/',
         'vercel_project': 'banding',
         'description': 'Banding workflow utility',
         'version': None,
