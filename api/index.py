@@ -112,7 +112,7 @@ APPS_CONFIG = [
         'name': 'Work Order Update',
         'url': 'https://work-order-update.vercel.app',
         'vercel_project': 'work_order_update',
-        'description': 'Update and manage work order information',
+        'description': 'Update Work Order item descriptions from the Item Master',
         'version': None,
         'lastUpdated': None,
         'under_development': False
