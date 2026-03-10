@@ -34,7 +34,7 @@ APPS_CONFIG = [
     },
     {
         'id': 'facility_addresses',
-        'name': 'Update Facility Addresses',
+        'name': 'Facility Address Update',
         'url': 'https://facilityaddresses.vercel.app',
         'vercel_project': 'facility_addresses',
         'description': 'Tool for managing and identifying facility addresses',
@@ -70,7 +70,7 @@ APPS_CONFIG = [
     },
     {
         'id': 'update_appt',
-        'name': 'Update Appointment Date',
+        'name': 'Appointment Date Update',
         'url': 'https://update-appt.vercel.app',
         'vercel_project': 'update_appt',
         'description': 'Tool for updating appointment dates and managing appointment schedules',
@@ -85,7 +85,37 @@ APPS_CONFIG = [
         'description': 'Generate product items, download images, and bulk import to Manhattan WMS',
         'version': None,
         'lastUpdated': None,
-        'under_development': True
+        'under_development': False
+    },
+    {
+        'id': 'proofofdelivery',
+        'name': 'Proof of Delivery',
+        'url': 'https://proofofdelivery.vercel.app',
+        'vercel_project': 'proofofdelivery',
+        'description': 'Capture delivery confirmations and proof-of-delivery details',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
+    },
+    {
+        'id': 'cycle_count',
+        'name': 'Cycle Count Import',
+        'url': 'https://cycle-count.vercel.app',
+        'vercel_project': 'cycle_count',
+        'description': 'Import and manage cycle count data',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
+    },
+    {
+        'id': 'work_order_update',
+        'name': 'Work Order Update',
+        'url': 'https://work-order-update.vercel.app',
+        'vercel_project': 'work_order_update',
+        'description': 'Update and manage work order information',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
     },
     {
         'id': 'baseline',
@@ -123,6 +153,26 @@ APPS_CONFIG = [
         'url': 'https://forecast-import.vercel.app',
         'vercel_project': 'forecast_import',
         'description': 'Import forecast data from CSV or Excel files',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
+    },
+    {
+        'id': 'scp_store',
+        'name': 'SCP Mobile',
+        'url': 'https://scp-store.vercel.app',
+        'vercel_project': 'scp_store',
+        'description': 'Mobile-focused SCP utility application',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
+    },
+    {
+        'id': 'banding',
+        'name': 'Banding',
+        'url': 'https://banding.vercel.app',
+        'vercel_project': 'banding',
+        'description': 'Banding workflow utility',
         'version': None,
         'lastUpdated': None,
         'under_development': True
