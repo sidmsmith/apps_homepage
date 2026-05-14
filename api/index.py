@@ -3,18 +3,17 @@ import os
 import os
 import requests
 import urllib3
-from datetime import datetime
+from datetime import datetime, timezone
 
 # Disable SSL warnings
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 app = Flask(__name__)
 
-# Home Assistant Configuration
-HA_WEBHOOK_URL = os.getenv("HA_WEBHOOK_URL", "http://sidmsmith.zapto.org:8123/api/webhook/manhattan_app_usage")
-HA_HEADERS = {"Content-Type": "application/json"}
+USAGE_INGEST_URL = os.getenv("MANHATTAN_USAGE_INGEST_URL", "").strip()
+USAGE_INGEST_SECRET = os.getenv("MANHATTAN_USAGE_INGEST_SECRET", "").strip()
 APP_NAME = "apps-homepage"
-APP_VERSION = "1.2.3"
+APP_VERSION = "1.2.4"
 
 # Vercel API Configuration
 VERCEL_API_BASE = "https://api.vercel.com"
@@ -289,28 +288,34 @@ def serve_logo():
     """Serve Manhattan Associates logo"""
     return send_from_directory(os.path.dirname(os.path.dirname(__file__)), 'manhlogo.png')
 
-def send_ha_message(event_name, metadata={}):
-    """Send event to Home Assistant webhook"""
+def forward_usage_event(payload):
+    """POST usage JSON to Manhattan app usage dashboard ingest (Neon)."""
+    if not USAGE_INGEST_URL:
+        print("[usage] MANHATTAN_USAGE_INGEST_URL not set; event not recorded")
+        return
+    headers = {"Content-Type": "application/json"}
+    if USAGE_INGEST_SECRET:
+        headers["Authorization"] = f"Bearer {USAGE_INGEST_SECRET}"
+    try:
+        requests.post(USAGE_INGEST_URL, json=payload, headers=headers, timeout=8)
+    except Exception as e:
+        print(f"[usage] Forward failed: {e}")
+
+
+@app.route('/api/usage-track', methods=['POST'])
+def usage_track():
+    """Receive events from frontend and forward to usage ingest."""
+    data = request.json
+    event_name = data.get('event_name')
+    metadata = data.get('metadata', {})
     payload = {
         "event_name": event_name,
         "app_name": APP_NAME,
         "app_version": APP_VERSION,
-        "timestamp": datetime.utcnow().isoformat(),
-        **metadata
+        **metadata,
+        "timestamp": datetime.now(timezone.utc).isoformat(),
     }
-    try:
-        requests.post(HA_WEBHOOK_URL, json=payload, headers=HA_HEADERS, timeout=5)
-    except Exception as e:
-        # Silently fail - don't interrupt user experience
-        pass
-
-@app.route('/api/ha-track', methods=['POST'])
-def ha_track():
-    """Receive events from frontend and forward to HA webhook"""
-    data = request.json
-    event_name = data.get('event_name')
-    metadata = data.get('metadata', {})
-    send_ha_message(event_name, metadata)
+    forward_usage_event(payload)
     return jsonify({"success": True})
 
 @app.route('/', defaults={'path': ''})
