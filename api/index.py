@@ -12,7 +12,7 @@ app = Flask(__name__)
 USAGE_INGEST_URL = os.getenv("MANHATTAN_USAGE_INGEST_URL", "").strip()
 USAGE_INGEST_SECRET = os.getenv("MANHATTAN_USAGE_INGEST_SECRET", "").strip()
 APP_NAME = "apps-homepage"
-APP_VERSION = "1.2.4"
+APP_VERSION = "1.2.5"
 
 # Vercel API Configuration
 VERCEL_API_BASE = "https://api.vercel.com"
@@ -126,6 +126,16 @@ APPS_CONFIG = [
         'under_development': True
     },
     {
+        'id': 'banding',
+        'name': 'Banding',
+        'url': 'https://banding-wm.vercel.app/',
+        'vercel_project': 'banding',
+        'description': 'Banding app to combine and split bundles (Leviton)',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
+    },
+    {
         'id': 'schedule_app',
         'name': 'Appointment Calendar',
         'url': 'https://scheduleappt.vercel.app',
@@ -156,21 +166,21 @@ APPS_CONFIG = [
         'under_development': True
     },
     {
-        'id': 'scp_store',
-        'name': 'SCP Mobile',
-        'url': 'https://manh-scp.vercel.app/',
-        'vercel_project': 'scp_store',
-        'description': 'Mobile-focused SCP utility application',
+        'id': 'item_update',
+        'name': 'Item Update',
+        'url': 'https://item-update.vercel.app',
+        'vercel_project': 'item_update',
+        'description': 'Update Item Master fields and item image',
         'version': None,
         'lastUpdated': None,
         'under_development': True
     },
     {
-        'id': 'banding',
-        'name': 'Banding',
-        'url': 'https://banding-wm.vercel.app/',
-        'vercel_project': 'banding',
-        'description': 'Banding app to combine and split bundles (Leviton)',
+        'id': 'scp_store',
+        'name': 'SCP Mobile',
+        'url': 'https://manh-scp.vercel.app/',
+        'vercel_project': 'scp_store',
+        'description': 'Mobile-focused SCP utility application',
         'version': None,
         'lastUpdated': None,
         'under_development': True
