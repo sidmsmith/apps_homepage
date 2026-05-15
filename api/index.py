@@ -1,6 +1,5 @@
 from flask import Flask, jsonify, send_from_directory, request
 import os
-import os
 import requests
 import urllib3
 from datetime import datetime, timezone
@@ -308,11 +307,12 @@ def usage_track():
     data = request.json
     event_name = data.get('event_name')
     metadata = data.get('metadata', {})
+    # Spread metadata first so server fields (app_name, app_version, event_name, timestamp) cannot be overridden by the client.
     payload = {
+        **metadata,
         "event_name": event_name,
         "app_name": APP_NAME,
         "app_version": APP_VERSION,
-        **metadata,
         "timestamp": datetime.now(timezone.utc).isoformat(),
     }
     forward_usage_event(payload)
