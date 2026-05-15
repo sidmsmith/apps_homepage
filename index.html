@@ -515,7 +515,7 @@
             return `
             <li class="app-item">
               <div class="app-header">
-                <a href="${appUrl}" target="_blank" class="app-name">
+                <a href="${appUrl}" target="_blank" class="app-name" data-app-name="${encodeURIComponent(app.name)}">
                   <i class="fas fa-external-link-alt"></i>
                   ${app.name}
                 </a>
@@ -542,7 +542,7 @@
             return `
             <li class="app-item">
               <div class="app-header">
-                <a href="${appUrl}" target="_blank" class="app-name">
+                <a href="${appUrl}" target="_blank" class="app-name" data-app-name="${encodeURIComponent(app.name)}">
                   <i class="fas fa-external-link-alt"></i>
                   ${app.name}
                 </a>
@@ -564,11 +564,18 @@
           const appLinks = document.querySelectorAll('.app-name');
           appLinks.forEach(link => {
             link.addEventListener('click', function(e) {
-              const appName = this.textContent.trim().replace(/^\s*[^\s]+\s*/, ''); // Remove icon text
+              let appName = '';
+              try {
+                const enc = this.getAttribute('data-app-name');
+                if (enc) appName = decodeURIComponent(enc);
+              } catch (_) {}
+              if (!appName || !String(appName).trim()) {
+                appName = this.textContent.trim().replace(/^\s*[^\s]+\s*/, '');
+              }
               const appUrl = this.getAttribute('href');
-              
+
               trackEvent('app_clicked', {
-                clicked_app_name: appName,
+                clicked_app_name: String(appName).trim(),
                 app_url: appUrl
               });
             });
