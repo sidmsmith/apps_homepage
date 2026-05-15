@@ -12,7 +12,7 @@ app = Flask(__name__)
 USAGE_INGEST_URL = os.getenv("MANHATTAN_USAGE_INGEST_URL", "").strip()
 USAGE_INGEST_SECRET = os.getenv("MANHATTAN_USAGE_INGEST_SECRET", "").strip()
 APP_NAME = "apps-homepage"
-APP_VERSION = "1.2.5"
+APP_VERSION = "1.2.6"
 
 # Vercel API Configuration
 VERCEL_API_BASE = "https://api.vercel.com"
@@ -131,6 +131,26 @@ APPS_CONFIG = [
         'url': 'https://banding-wm.vercel.app/',
         'vercel_project': 'banding',
         'description': 'Banding app to combine and split bundles (Leviton)',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
+    },
+    {
+        'id': 'dispatch',
+        'name': 'Dispatch',
+        'url': 'https://dispatch-manh.vercel.app',
+        'vercel_project': 'dispatch',
+        'description': 'Trip filtering and driver self-assignment for Manhattan TMS',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
+    },
+    {
+        'id': 'dispatch_request',
+        'name': 'Manual Dispatch Request',
+        'url': 'https://dispatch-request.vercel.app',
+        'vercel_project': 'dispatch_request',
+        'description': 'Create Transportation Orders and dispatch trips manually',
         'version': None,
         'lastUpdated': None,
         'under_development': True
