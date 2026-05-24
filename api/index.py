@@ -208,7 +208,7 @@ APPS_CONFIG = [
     {
         'id': 'item_generator',
         'name': 'Item Copy',
-        'url': 'https://item-generator.vercel.app',
+        'url': 'https://item-copy.vercel.app',
         'vercel_project': 'item-generator',
         'description': 'Copy an existing Item Master record and create a new item with updated ID and description',
         'version': None,
