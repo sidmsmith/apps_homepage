@@ -77,7 +77,7 @@ APPS_CONFIG = [
     },
     {
         'id': 'item_generator_gallery',
-        'name': 'Item Generator',
+        'name': 'Item Generator Gallery',
         'url': 'https://itemgenerator-gallery.vercel.app',
         'vercel_project': 'item_generator_gallery',
         'description': 'Generate product items, download images, and bulk import to Manhattan WMS',
@@ -204,6 +204,16 @@ APPS_CONFIG = [
         'version': None,
         'lastUpdated': None,
         'under_development': True
+    },
+    {
+        'id': 'item_generator',
+        'name': 'Item Copy',
+        'url': 'https://item-generator.vercel.app',
+        'vercel_project': 'item-generator',
+        'description': 'Copy an existing Item Master record and create a new item with updated ID and description',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
     }
 ]
 
