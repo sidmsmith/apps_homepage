@@ -37,6 +37,14 @@ class AppsHomepageHandler(SimpleHTTPRequestHandler):
                     'description': 'Check-in kiosk application for appointment management',
                     'version': 'v1.0.0',
                     'lastUpdated': '2024-01-01'
+                },
+                {
+                    'id': 'inspection',
+                    'name': 'Inspection',
+                    'url': 'https://inspection-manh.vercel.app',
+                    'description': 'Inspection app with updates and photos',
+                    'version': 'v0.0.0',
+                    'lastUpdated': '2024-01-01'
                 }
             ]
             

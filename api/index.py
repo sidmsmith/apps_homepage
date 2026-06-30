@@ -12,7 +12,7 @@ app = Flask(__name__)
 USAGE_INGEST_URL = os.getenv("MANHATTAN_USAGE_INGEST_URL", "").strip()
 USAGE_INGEST_SECRET = os.getenv("MANHATTAN_USAGE_INGEST_SECRET", "").strip()
 APP_NAME = "apps-homepage"
-APP_VERSION = "1.2.6"
+APP_VERSION = "1.2.7"
 
 # Vercel API Configuration
 VERCEL_API_BASE = "https://api.vercel.com"
@@ -29,6 +29,15 @@ APPS_CONFIG = [
         'description': 'Check-in kiosk application for appointment management',
         'version': None,  # Will be fetched dynamically
         'lastUpdated': None  # Will be fetched dynamically
+    },
+    {
+        'id': 'inspection',
+        'name': 'Inspection',
+        'url': 'https://inspection-manh.vercel.app',
+        'vercel_project': 'inspection',
+        'description': 'Inspection app with updates and photos',
+        'version': None,
+        'lastUpdated': None
     },
     {
         'id': 'facility_addresses',
