@@ -215,6 +215,16 @@ APPS_CONFIG = [
         'under_development': True
     },
     {
+        'id': 'flowthrough',
+        'name': 'Flowthrough',
+        'url': 'https://flowthrough.vercel.app',
+        'vercel_project': 'flowthrough',
+        'description': 'ASN-driven replenishment allocation — preview algorithms and create facility orders',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
+    },
+    {
         'id': 'item_generator',
         'name': 'Item Copy',
         'url': 'https://item-copy.vercel.app',
