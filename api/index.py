@@ -215,6 +215,16 @@ APPS_CONFIG = [
         'under_development': True
     },
     {
+        'id': 'billingmgmt',
+        'name': 'Billing Management',
+        'url': 'https://billingmgmt.vercel.app',
+        'vercel_project': 'billingmgmt',
+        'description': 'Configure warehouse billing rules — activities, rate cards, rules, bill-to codes',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
+    },
+    {
         'id': 'flowthrough',
         'name': 'Flowthrough',
         'url': 'https://flowthrough.vercel.app',
