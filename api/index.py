@@ -12,7 +12,7 @@ app = Flask(__name__)
 USAGE_INGEST_URL = os.getenv("MANHATTAN_USAGE_INGEST_URL", "").strip()
 USAGE_INGEST_SECRET = os.getenv("MANHATTAN_USAGE_INGEST_SECRET", "").strip()
 APP_NAME = "apps-homepage"
-APP_VERSION = "1.2.7"
+APP_VERSION = "1.3.0"
 
 # Vercel API Configuration
 VERCEL_API_BASE = "https://api.vercel.com"
@@ -125,26 +125,6 @@ APPS_CONFIG = [
         'under_development': False
     },
     {
-        'id': 'baseline',
-        'name': 'Baseline',
-        'url': 'https://baseline-manh.vercel.app',
-        'vercel_project': 'baseline',
-        'description': 'Baseline used for creating new apps',
-        'version': None,
-        'lastUpdated': None,
-        'under_development': True
-    },
-    {
-        'id': 'banding',
-        'name': 'Banding',
-        'url': 'https://banding-wm.vercel.app/',
-        'vercel_project': 'banding',
-        'description': 'Banding app to combine and split bundles (Leviton)',
-        'version': None,
-        'lastUpdated': None,
-        'under_development': True
-    },
-    {
         'id': 'dispatch',
         'name': 'Dispatch',
         'url': 'https://dispatch-manh.vercel.app',
@@ -185,41 +165,11 @@ APPS_CONFIG = [
         'under_development': False
     },
     {
-        'id': 'forecast_import',
-        'name': 'Import Forecast',
-        'url': 'https://forecast-import.vercel.app',
-        'vercel_project': 'forecast_import',
-        'description': 'Import forecast data from CSV or Excel files',
-        'version': None,
-        'lastUpdated': None,
-        'under_development': True
-    },
-    {
         'id': 'item_update',
         'name': 'Item Update',
         'url': 'https://item-update.vercel.app',
         'vercel_project': 'item_update',
         'description': 'Update Item Master fields and item image',
-        'version': None,
-        'lastUpdated': None,
-        'under_development': True
-    },
-    {
-        'id': 'scp_store',
-        'name': 'SCP Mobile',
-        'url': 'https://manh-scp.vercel.app/',
-        'vercel_project': 'scp_store',
-        'description': 'Mobile-focused SCP utility application',
-        'version': None,
-        'lastUpdated': None,
-        'under_development': True
-    },
-    {
-        'id': 'billingmgmt',
-        'name': 'Billing Management',
-        'url': 'https://billingmgmt.vercel.app',
-        'vercel_project': 'billingmgmt',
-        'description': 'Configure warehouse billing rules — activities, rate cards, rules, bill-to codes',
         'version': None,
         'lastUpdated': None,
         'under_development': True
@@ -240,6 +190,36 @@ APPS_CONFIG = [
         'url': 'https://item-copy.vercel.app',
         'vercel_project': 'item-generator',
         'description': 'Copy an existing Item Master record and create a new item with updated ID and description',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
+    },
+    {
+        'id': 'supplierenablement',
+        'name': 'Supplier Enablement',
+        'url': 'https://supplierenablement.vercel.app',
+        'vercel_project': 'supplierenablement',
+        'description': 'Create ASNs from POs and generate LPNs against Manhattan WMS',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
+    },
+    {
+        'id': 'receivingworkbench',
+        'name': 'Receiving Workbench',
+        'url': 'https://receivingworkbench.vercel.app',
+        'vercel_project': 'receivingworkbench',
+        'description': 'Receive against an ASN from a warehouse dock — full, partial, or all-lines receiving',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
+    },
+    {
+        'id': 'vasexecution',
+        'name': 'VAS Execution',
+        'url': 'https://vasexecution.vercel.app',
+        'vercel_project': 'vasexecution',
+        'description': 'Look up and complete assigned VAS services on an oLPN',
         'version': None,
         'lastUpdated': None,
         'under_development': False
