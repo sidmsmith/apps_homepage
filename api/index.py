@@ -33,7 +33,7 @@ APPS_CONFIG = [
     {
         'id': 'inspection',
         'name': 'Inspection',
-        'url': 'https://inspection-manh.vercel.app',
+        'url': 'https://inspection-wms.vercel.app',
         'vercel_project': 'inspection',
         'description': 'Inspection app with updates and photos',
         'version': None,

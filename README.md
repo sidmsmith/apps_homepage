@@ -10,7 +10,7 @@ and a static `index.html` renders it as a grid of tiles.
 | Name | URL | Description |
 |---|---|---|
 | Check In Kiosk | https://checkinkiosk.vercel.app | Check-in kiosk application for appointment management |
-| Inspection | https://inspection-manh.vercel.app | Inspection app with updates and photos |
+| Inspection | https://inspection-wms.vercel.app | Inspection app with updates and photos |
 | Facility Address Update | https://facilityaddresses.vercel.app | Tool for managing and identifying facility addresses |
 | LPN Lock / Unlock | https://lpnlock.vercel.app | Application for locking and unlocking License Plate Numbers (LPNs) |
 | MHE Console | https://mhe-console.vercel.app | Material Handling Equipment console for monitoring and managing MHE operations |
