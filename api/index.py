@@ -223,6 +223,26 @@ APPS_CONFIG = [
         'version': None,
         'lastUpdated': None,
         'under_development': False
+    },
+    {
+        'id': 'taskcompletion',
+        'name': 'Task Completion',
+        'url': 'https://taskcompletion-wms.vercel.app',
+        'vercel_project': 'taskcompletion',
+        'description': 'Complete a WMS task (Putaway, Picking, Cycle Count, Replenishment) without a mobile RF device',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
+    },
+    {
+        'id': 'findinstructions',
+        'name': 'Find Instructions',
+        'url': 'https://findinstructions.vercel.app',
+        'vercel_project': 'findinstructions',
+        'description': 'Find MAWM assigned Pick/Pack instructions for an Order or oLPN',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': True
     }
 ]
 
