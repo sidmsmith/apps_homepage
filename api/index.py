@@ -12,7 +12,7 @@ app = Flask(__name__)
 USAGE_INGEST_URL = os.getenv("MANHATTAN_USAGE_INGEST_URL", "").strip()
 USAGE_INGEST_SECRET = os.getenv("MANHATTAN_USAGE_INGEST_SECRET", "").strip()
 APP_NAME = "apps-homepage"
-APP_VERSION = "1.3.0"
+APP_VERSION = "1.3.1"
 
 # Vercel API Configuration
 VERCEL_API_BASE = "https://api.vercel.com"
@@ -74,6 +74,16 @@ APPS_CONFIG = [
         'description': 'Generate and manage orders with bulk import capabilities and order validation',
         'version': None,
         'lastUpdated': None
+    },
+    {
+        'id': 'spocreation',
+        'name': 'SPO Creation',
+        'url': 'https://spocreation.vercel.app',
+        'vercel_project': 'spocreation',
+        'description': 'Load, edit, and create Supplier Purchase Orders (SPOs) across Manhattan environments',
+        'version': None,
+        'lastUpdated': None,
+        'under_development': False
     },
     {
         'id': 'update_appt',
